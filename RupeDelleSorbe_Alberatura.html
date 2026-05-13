@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Alberatura Sito Ready — Rupe delle Sorbe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #F0EBE0;
+    color: #1F1B19;
+    line-height: 1.6;
+    padding: 40px 24px 60px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+
+  /* HEADER */
+  .doc-header { text-align: center; margin-bottom: 40px; }
+  .doc-header .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #5C1A20;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .doc-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    color: #5C1A20;
+    margin-bottom: 12px;
+  }
+  .doc-header .lead {
+    font-size: 14px;
+    color: #4A4A4A;
+    max-width: 720px;
+    margin: 0 auto 12px;
+    letter-spacing: 1px;
+  }
+  .doc-header .credit {
+    font-size: 11px;
+    color: #8A8A8A;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* CARD generica */
+  .card-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 44px 44px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .card-head {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 16px;
+  }
+  .badge-num {
+    background: #5C1A20;
+    color: #FFFFFF;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .card-head h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5C1A20;
+    letter-spacing: -0.5px;
+  }
+  .card-intro {
+    font-size: 14.5px;
+    color: #333;
+    margin-bottom: 32px;
+    line-height: 1.65;
+  }
+  .card-intro strong { color: #5C1A20; font-weight: 700; }
+
+  /* MAPPA DEL SITO - albero gerarchico */
+  .sitemap-block {
+    background: #FAF7F0;
+    border: 1px solid #E5DFCE;
+    border-radius: 12px;
+    padding: 40px 28px 36px;
+    text-align: center;
+  }
+  .sitemap-block .home-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #5C1A20;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .sitemap-block .home-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: #5C1A20;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .sitemap-block .home-url {
+    font-family: 'Lato', monospace;
+    font-size: 13px;
+    color: #8A8A8A;
+    margin-bottom: 32px;
+  }
+  .sitemap-tree-line {
+    width: 2px;
+    height: 32px;
+    background: #5C1A20;
+    margin: 0 auto;
+  }
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+    margin-bottom: 32px;
+  }
+  .page-node {
+    background: #FFFFFF;
+    border: 1.5px solid #5C1A20;
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+    position: relative;
+  }
+  .page-node .pn-num {
+    display: inline-block;
+    background: #5C1A20;
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .page-node .pn-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F1B19;
+    line-height: 1.15;
+  }
+  .separator-row {
+    margin: 24px 0 22px;
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8A8A8A;
+    font-weight: 700;
+  }
+  .separator-row span {
+    background: #FAF7F0;
+    padding: 0 14px;
+    position: relative;
+  }
+  .blog-node {
+    background: #5C1A20;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: inline-block;
+    text-align: left;
+  }
+  .blog-node .bn-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #E8DCC0;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .blog-node .bn-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .blog-node .bn-url {
+    font-family: 'Lato', monospace;
+    font-size: 12px;
+    color: #E8DCC0;
+    margin-top: 2px;
+  }
+
+  /* SCHEDE DETTAGLIATE PAGINE */
+  .page-card {
+    background: #FAF7F0;
+    border: 1px solid #E5DFCE;
+    border-radius: 12px;
+    padding: 32px 32px;
+    margin-bottom: 22px;
+  }
+  .page-card .pc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid #E5DFCE;
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+  }
+  .page-card .pc-num {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5C1A20;
+    font-weight: 700;
+  }
+  .page-card .pc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #5C1A20;
+    line-height: 1;
+    margin: 4px 0;
+    letter-spacing: -0.5px;
+  }
+  .page-card .pc-url {
+    font-family: 'Lato', monospace;
+    font-size: 13px;
+    color: #8A8A8A;
+  }
+  .page-card .pc-funnel {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    background: #5C1A20;
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+  .page-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 22px;
+  }
+  .page-block h4 {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #5C1A20;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .page-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .page-block ul li {
+    font-family: 'Lato', sans-serif;
+    font-size: 13.5px;
+    color: #1F1B19;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(229, 223, 206, 0.7);
+    line-height: 1.45;
+  }
+  .page-block ul li:last-child { border-bottom: none; }
+  .page-block ul li.kw {
+    color: #5C5C5C;
+    font-style: italic;
+    font-size: 13px;
+  }
+  .page-block.persona-block p {
+    font-family: 'Lato', sans-serif;
+    font-size: 13.5px;
+    color: #1F1B19;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .page-block.persona-block p strong {
+    color: #5C1A20;
+    font-weight: 700;
+  }
+  .pc-foot {
+    border-top: 1px solid #E5DFCE;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .pc-interlink {
+    font-family: 'Lato', sans-serif;
+    font-size: 12.5px;
+    color: #5C5C5C;
+    flex: 1;
+    line-height: 1.5;
+  }
+  .pc-interlink strong {
+    color: #5C1A20;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .pc-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    background: #5C1A20;
+    color: #FFFFFF;
+    padding: 12px 22px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  /* BLOG SECTION */
+  .blog-intro-card {
+    background: #FAF7F0;
+    border-left: 4px solid #5C1A20;
+    padding: 28px 32px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 26px;
+  }
+  .blog-intro-card .bi-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5C1A20;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .blog-intro-card .bi-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #5C1A20;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .blog-intro-card .bi-url {
+    font-family: 'Lato', monospace;
+    font-size: 13px;
+    color: #8A8A8A;
+    margin-bottom: 16px;
+  }
+  .blog-intro-card .bi-desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #1F1B19;
+    line-height: 1.6;
+  }
+  .blog-intro-card .bi-desc strong {
+    color: #5C1A20;
+    font-weight: 700;
+  }
+  .blog-categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+  .blog-cat {
+    background: #FAF7F0;
+    border: 1px solid #E5DFCE;
+    border-radius: 10px;
+    padding: 22px 18px;
+  }
+  .blog-cat .bc-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #5C1A20;
+    line-height: 0.9;
+    margin-bottom: 10px;
+  }
+  .blog-cat h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F1B19;
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .blog-cat p {
+    font-family: 'Lato', sans-serif;
+    font-size: 12.5px;
+    color: #5C5C5C;
+    line-height: 1.5;
+  }
+
+  /* SPECIFICHE TECNICHE & SEO - 6 box */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .spec-box {
+    background: #FAF7F0;
+    border: 1px solid #E5DFCE;
+    border-radius: 10px;
+    padding: 24px 22px;
+  }
+  .spec-box h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #5C1A20;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .spec-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .spec-box ul li {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #1F1B19;
+    padding: 5px 0 5px 18px;
+    line-height: 1.5;
+    position: relative;
+  }
+  .spec-box ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #5C1A20;
+    font-weight: 700;
+  }
+  .spec-box ul li strong {
+    color: #5C1A20;
+    font-weight: 700;
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    text-align: center;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid #D8D2C0;
+    font-size: 11px;
+    color: #8A8A8A;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .doc-footer .by {
+    color: #5C1A20;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="eyebrow">Architettura</div>
+    <h1>Alberatura sito Ready</h1>
+    <p class="lead">Rupe delle Sorbe Agriturismo · Atella (PZ) · 8 pagine pacchetto Ready PagineSì</p>
+    <div class="credit">Cliente 361273 · Documento a cura di Salvo Bilotti — Strategist</div>
+  </div>
+
+  <!-- SEZIONE INTRO -->
+  <section class="card-section">
+    <div class="card-head">
+      <div class="badge-num">1</div>
+      <h2>Mappa del sito</h2>
+    </div>
+    <p class="card-intro">Mappa del sito strategicamente progettata sulla base dell'<strong>analisi del sito attuale</strong>, del <strong>gap competitivo con Country House Villa delle Rose</strong> (competitor locale diretto Atella–Monticchio–Rionero), delle <strong>3 buyer personas</strong> definite (Famiglie Sud Italia / Scuole Basilicata-Puglia-Campania / Turisti enogastronomici Roma-Milano-Bologna) e degli <strong>asset distintivi</strong> dell'azienda (filiera bio integrata 6 ettari, accessibilità disabili, Booking 8,2 + Tripadvisor 5/5 n.1 Atella, APT Basilicata, servizio TG7).</p>
+
+    <!-- Mappa visiva -->
+    <div class="sitemap-block">
+      <div class="home-label">Homepage</div>
+      <div class="home-title">Rupe delle Sorbe</div>
+      <div class="home-url">agriturismorupedellesorbe.com</div>
+      <div class="sitemap-tree-line"></div>
+
+      <div class="sitemap-grid">
+        <div class="page-node">
+          <div class="pn-num">01</div>
+          <div class="pn-name">Home</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">02</div>
+          <div class="pn-name">Pernottamento</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">03</div>
+          <div class="pn-name">Ristorante &amp; Eventi</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">04</div>
+          <div class="pn-name">Fattoria Didattica</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">05</div>
+          <div class="pn-name">I nostri prodotti</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">06</div>
+          <div class="pn-name">Gallery</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">07</div>
+          <div class="pn-name">Blog</div>
+        </div>
+        <div class="page-node">
+          <div class="pn-num">08</div>
+          <div class="pn-name">Contatti</div>
+        </div>
+      </div>
+
+      <div class="separator-row" style="border-top: 1px solid #E5DFCE; line-height: 0;">
+        <span>Pacchetto Ready · 8 pagine totali</span>
+      </div>
+
+      <div class="blog-node">
+        <div class="bn-label">Asset SEO long-tail</div>
+        <div class="bn-name">Blog editoriale (Pagina 07)</div>
+        <div class="bn-url">/blog/ — 5 categorie verticali</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2: SCHEDE DETTAGLIATE -->
+  <section class="card-section">
+    <div class="card-head">
+      <div class="badge-num">2</div>
+      <h2>Schede dettagliate per pagina</h2>
+    </div>
+    <p class="card-intro">Per ciascuna delle 8 pagine del Ready: <strong>URL slug, keyword strategiche, sezioni di contenuto, buyer persona target, ruolo nel funnel, CTA principale e interlinking interno</strong>. La gerarchia è coerente con la palette Vulture Premium e con la tipografia Cormorant Garamond + Lato.</p>
+
+    <!-- PAGINA 01: HOME -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 01</div>
+          <h3 class="pc-title">Home</h3>
+          <div class="pc-url">/ &nbsp;·&nbsp; hub centrale del sito</div>
+        </div>
+        <span class="pc-funnel">TOFU + MOFU · Awareness</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">agriturismo parco vulture</li>
+            <li class="kw">agriturismo atella basilicata</li>
+            <li class="kw">agriturismo bio basilicata famiglie</li>
+            <li class="kw">dove dormire vulture</li>
+            <li>Hero fotografico + headline "Sei ettari di filiera bio nel Parco del Vulture"</li>
+            <li>Sintesi delle 4 anime (Dormi · Mangia · Impara · Porta a casa)</li>
+            <li>Sezione "Dicono di noi" (badge Booking 8,2 · Tripadvisor 5/5 · TG7 · APT)</li>
+            <li>Box "La nostra storia" famiglia Minniti + Rosalba</li>
+            <li>4 card di accesso alle pagine di servizio</li>
+            <li>Ultimi 3 articoli del blog</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> tutte e tre le personas (Famiglie · Scuole · Turisti enogastronomici). Pagina di <strong>brand reveal</strong>: racconta in 5 secondi il posizionamento "unica destinazione del Vulture dove dormire, mangiare, imparare e acquistare nella stessa filiera bio".</p>
+          <p>Hero con bottone primario di accesso al widget calendario in pagina Pernottamento. CTA secondari verso Ristorante (prenota tavolo) e Fattoria (modulo scuole).</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Tutte le 7 pagine successive · ogni anima ha una card di accesso prominente in homepage.
+        </div>
+        <a href="#" class="pc-cta">Verifica disponibilità →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 02: PERNOTTAMENTO -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 02</div>
+          <h3 class="pc-title">Pernottamento</h3>
+          <div class="pc-url">/pernottamento/ &nbsp;·&nbsp; widget calendario integrato</div>
+        </div>
+        <span class="pc-funnel">BOFU · Conversion</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">agriturismo atella pernottamento</li>
+            <li class="kw">dove dormire laghi monticchio</li>
+            <li class="kw">b&amp;b vulture basilicata accessibile disabili</li>
+            <li class="kw">weekend parco vulture coppie</li>
+            <li>Le 4 camere (8 posti letto totali) con foto e descrizione</li>
+            <li>Accessibilità totale disabili (bagni ampi, accesso camere)</li>
+            <li>Servizi: colazione bio, mezza pensione, pensione completa</li>
+            <li><strong>Widget calendario-prenotazione integrato</strong> (date · ospiti · richiesta disponibilità)</li>
+            <li>Leva incentivo "Prenota dal sito = bonus benvenuto in struttura"</li>
+            <li>Sezione "Come arrivare" e direzioni dal Vulture</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> <strong>Persona 1 (Famiglie Sud Italia)</strong> per weekend di prossimità e <strong>Persona 3 (Turisti enogastronomici)</strong> per soggiorni 2-4 notti. Pagina ad <strong>altissimo valore di conversione</strong>: è il punto di disintermediazione da Booking (commissioni 15-18%).</p>
+          <p>Widget integrato sostituisce il flusso OTA. Bonus benvenuto come leva economica concreta per chi prenota direttamente.</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Ristorante (mezza pensione), Fattoria Didattica (pacchetti famiglia weekend), Gallery (camere), Contatti.
+        </div>
+        <a href="#" class="pc-cta">Richiedi disponibilità →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 03: RISTORANTE & EVENTI -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 03</div>
+          <h3 class="pc-title">Ristorante &amp; Eventi</h3>
+          <div class="pc-url">/ristorante-eventi/ &nbsp;·&nbsp; cucina lucana bio km0</div>
+        </div>
+        <span class="pc-funnel">MOFU · Consideration</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">ristorante tipico vulture basilicata</li>
+            <li class="kw">cucina lucana bio km0 atella</li>
+            <li class="kw">ristorante per famiglie parco vulture</li>
+            <li class="kw">cerimonie banchetti agriturismo basilicata</li>
+            <li>Cucina della tradizione lucana con ingredienti della filiera aziendale</li>
+            <li>Menu stagionale (cambia 4 volte l'anno con i prodotti del Vulture)</li>
+            <li>Prenotazione tavolo (modulo + WhatsApp Business)</li>
+            <li><strong>Sezione interna "Eventi e cerimonie"</strong>: banchetti, pranzi aziendali, ricorrenze</li>
+            <li>Modulo richiesta preventivo eventi</li>
+            <li>Galleria piatti e sala</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> <strong>Persona 3 (Turisti enogastronomici)</strong> per pranzi e cene a tema, <strong>Persona 1 (Famiglie)</strong> per ricorrenze. Pagina <strong>cluster gourmet</strong>: è il modo per intercettare il turista del Vulture in cerca di cucina autentica + asset commerciale per eventi privati.</p>
+          <p>Doppio funnel: prenotazione tavolo immediata (BOFU) + richiesta preventivo cerimonie (MOFU lungo).</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Pernottamento (mezza pensione), I nostri prodotti (filiera in tavola), Blog (ricette stagionali), Contatti.
+        </div>
+        <a href="#" class="pc-cta">Prenota un tavolo →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 04: FATTORIA DIDATTICA -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 04</div>
+          <h3 class="pc-title">Fattoria Didattica</h3>
+          <div class="pc-url">/fattoria-didattica/ &nbsp;·&nbsp; "A Scuola in Fattoria" 9:30 – 17:00</div>
+        </div>
+        <span class="pc-funnel">BOFU + MOFU · Acquisition scuole</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">fattoria didattica potenza basilicata</li>
+            <li class="kw">gita scolastica basilicata</li>
+            <li class="kw">fattoria didattica per scuole materne</li>
+            <li class="kw">a scuola in fattoria vulture</li>
+            <li>Programma "A Scuola in Fattoria" 9:30 – 17:00 con percorsi</li>
+            <li>Accessibilità totale (carrozzine, accompagnatori, allergie alimentari)</li>
+            <li><strong>Scheda PDF scaricabile per insegnanti</strong> (programma · costi · trasporti · contatti)</li>
+            <li><strong>Listino prezzo per studente</strong> esposto in chiaro</li>
+            <li>Modulo prenotazione scuole dedicato</li>
+            <li>Sezione "Camp estivi famiglie" (ammortizza la stagionalità scuole)</li>
+            <li>Galleria attività e animali della fattoria</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> <strong>Persona 2 (Scuole/Insegnanti)</strong> di Basilicata, Puglia foggiana e Campania interna. Pagina <strong>strategicamente vincibile</strong>: nessun competitor locale ha oggi un'offerta scuole strutturata online con PDF + listino + modulo dedicato.</p>
+          <p>Monopolio SERP sul cluster "fattoria didattica Potenza" e "gita scolastica Basilicata" come obiettivo SEO a 6-12 mesi.</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Pernottamento (gite con notte in struttura), Ristorante (pranzo scolaresche), Gallery (foto attività), Blog (storie di fattoria).
+        </div>
+        <a href="#" class="pc-cta">Scarica il programma scuole →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 05: I NOSTRI PRODOTTI -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 05</div>
+          <h3 class="pc-title">I nostri prodotti</h3>
+          <div class="pc-url">/prodotti/ &nbsp;·&nbsp; vetrina filiera (no e-commerce)</div>
+        </div>
+        <span class="pc-funnel">MOFU · Lead Generation</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">olio ogliarola vulture biologico</li>
+            <li class="kw">suino nero di lucania salumi</li>
+            <li class="kw">prodotti tipici parco vulture</li>
+            <li class="kw">formaggi bio basilicata fattoria</li>
+            <li>Olio EVO Ogliarola del Vulture (cultivar autoctona, raccolta a mano)</li>
+            <li>Formaggi freschi e stagionati dei bovini Grigia Alpina aziendali</li>
+            <li>Salumi del suino nero di Lucania (filiera completa interna)</li>
+            <li>Conserve e ortaggi degli orti aziendali (stagionali)</li>
+            <li>Filiera raccontata: campo → trasformazione → confezionamento</li>
+            <li><strong>CTA lead generation</strong>: WhatsApp Business + modulo "Richiedi listino"</li>
+            <li>Nota: <em>non è e-commerce</em>, è vendita a richiesta e on-site</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> <strong>Persona 3 (Turisti enogastronomici)</strong> per acquisto post-soggiorno e regalo. <strong>Persona 1 (Famiglie)</strong> per spesa di prossimità.</p>
+          <p>Pagina come <strong>vetrina + canale di lead</strong>: trasforma l'interesse in richiesta diretta (WhatsApp / modulo) senza gestione e-commerce complessa. Richiede gestione operativa interna disciplinata dei contatti.</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Ristorante (filiera in tavola), Pernottamento (degustazione in soggiorno), Blog (storie produzione olio/salumi/formaggi), Contatti.
+        </div>
+        <a href="#" class="pc-cta">Richiedi il listino →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 06: GALLERY -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 06</div>
+          <h3 class="pc-title">Gallery</h3>
+          <div class="pc-url">/gallery/ &nbsp;·&nbsp; hub visivo del brand</div>
+        </div>
+        <span class="pc-funnel">TOFU · Brand reveal</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">agriturismo vulture foto</li>
+            <li class="kw">camere agriturismo atella foto</li>
+            <li class="kw">fattoria didattica foto attività</li>
+            <li>Animali in fattoria (bovini, suino nero, gli animali da fattoria)</li>
+            <li>Terrazza panoramica e vista Parco del Vulture</li>
+            <li>Oliveto e raccolta delle olive (galleria stagionale)</li>
+            <li>Piatti del ristorante e cucina lucana</li>
+            <li>Camere e zone comuni accessibili</li>
+            <li>Eventi stagionali (Festa Olio Nuovo, Open Day, ricorrenze)</li>
+            <li>Tutte le immagini con <strong>alt-text geolocalizzato</strong> per SEO</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> tutte e tre le personas in fase di valutazione. Pagina di <strong>prova visiva</strong> della filiera bio dichiarata: animali veri, persone vere, cibo vero, niente immagini stock.</p>
+          <p>Sostiene anche la <strong>SEO immagini</strong> con alt-text mirati ("animali fattoria didattica Atella", "olio ogliarola raccolta vulture", "camere disabili agriturismo Basilicata").</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Tutte le pagine di servizio: ogni anima ha una galleria filtro dedicata.
+        </div>
+        <a href="#" class="pc-cta">Esplora la fattoria →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 07: BLOG -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 07</div>
+          <h3 class="pc-title">Blog</h3>
+          <div class="pc-url">/blog/ &nbsp;·&nbsp; motore SEO long-tail</div>
+        </div>
+        <span class="pc-funnel">TOFU · Acquisition organica</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">cosa fare nel vulture (pillar)</li>
+            <li class="kw">laghi di monticchio cosa vedere</li>
+            <li class="kw">castello di melfi visita orari</li>
+            <li class="kw">cantine aglianico vulture visita</li>
+            <li class="kw">cascate di san fele percorso</li>
+            <li>5 categorie editoriali verticali (dettaglio sezione successiva)</li>
+            <li>Pillar page "Cosa fare nel Vulture" con link interno a 5-6 articoli satellite</li>
+            <li>Cluster Filiera & Stagionalità (raccolta olive, suino nero, calendario fattoria)</li>
+            <li>Storia famiglia Minniti come articolo evergreen pinnato in alto</li>
+            <li>Calendario editoriale 2 articoli al mese minimo</li>
+            <li>Embed video YouTube ufficiale (apertura in fase 1 lancio sito)</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> <strong>Persona 3 (Turisti enogastronomici)</strong> in fase di pianificazione viaggio. Pagina <strong>motore di acquisizione</strong>: intercetta il turista 30-60 giorni prima del soggiorno, su keyword che gli 8 slot Ready non basterebbero a coprire.</p>
+          <p>Asset SEO long-tail con finestra di posizionamento 6-12 mesi sul cluster "Vulture turistico" oggi non presidiato dai competitor.</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Ogni articolo blog rinvia a 1-2 pagine commerciali (Pernottamento, Ristorante, Fattoria, Prodotti). YouTube embed nelle pagine prodotto.
+        </div>
+        <a href="#" class="pc-cta">Esplora il blog →</a>
+      </div>
+    </div>
+
+    <!-- PAGINA 08: CONTATTI -->
+    <div class="page-card">
+      <div class="pc-head">
+        <div>
+          <div class="pc-num">Pagina 08</div>
+          <h3 class="pc-title">Contatti</h3>
+          <div class="pc-url">/contatti/ &nbsp;·&nbsp; pagina di conversione finale</div>
+        </div>
+        <span class="pc-funnel">BOFU · Decision</span>
+      </div>
+      <div class="page-body">
+        <div class="page-block">
+          <h4>Keyword &amp; Sezioni</h4>
+          <ul>
+            <li class="kw">contatti rupe delle sorbe atella</li>
+            <li class="kw">telefono agriturismo atella</li>
+            <li class="kw">come arrivare agriturismo atella vulture</li>
+            <li>Form contatti generico (tematico: pernottamento / ristorante / fattoria / prodotti)</li>
+            <li>WhatsApp Business + numero diretto (327 9419530)</li>
+            <li>Email principale (rupedellesorbe@gmail.com)</li>
+            <li>Indirizzo: Via Portiello 8, 85020 Atella (PZ)</li>
+            <li>Mappa interattiva Google Maps</li>
+            <li><strong>Sezione "Come arrivare"</strong>: direttrici da Foggia, Potenza, Napoli, Bari</li>
+            <li>Orari di apertura ristorante e check-in</li>
+          </ul>
+        </div>
+        <div class="page-block persona-block">
+          <h4>Persona target &amp; CTA</h4>
+          <p><strong>Persona principale:</strong> tutte le personas in fase decisionale. <strong>Pagina di conversione finale</strong>: ogni euro speso in SEO, social, blog e widget calendario converge qui per le richieste non immediate.</p>
+          <p>Form con campo tematico per indirizzare il lead direttamente al canale operativo giusto (camera / tavolo / scuola / prodotti).</p>
+        </div>
+      </div>
+      <div class="pc-foot">
+        <div class="pc-interlink">
+          <strong>Interlinking interno</strong>
+          Footer di tutte le pagine, sticky-button mobile, ogni CTA secondaria del sito.
+        </div>
+        <a href="#" class="pc-cta">Scrivici su WhatsApp →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SEZIONE 3: BLOG EDITORIALE - 5 categorie -->
+  <section class="card-section">
+    <div class="card-head">
+      <div class="badge-num">3</div>
+      <h2>Blog editoriale</h2>
+    </div>
+    <p class="card-intro">La pagina Blog (Pagina 07 dell'alberatura Ready) è strutturata su <strong>5 categorie verticali</strong>, con almeno <strong>2 articoli al mese</strong>, ottimizzati per le keyword long-tail emerse dalla ricerca semantica sul Vulture turistico e calibrati sul tono <strong>familiare-autentico</strong> coerente con il posizionamento "agriturismo della famiglia Minniti".</p>
+
+    <div class="blog-intro-card">
+      <div class="bi-label">Asset SEO long-tail · Pagina 07</div>
+      <div class="bi-title">Blog — Vulture, Filiera, Famiglia</div>
+      <div class="bi-url">/blog/</div>
+      <p class="bi-desc"><strong>5 categorie editoriali</strong>, 2 articoli/mese, calendario editoriale annuale. La pillar page "Cosa fare nel Vulture" è il fulcro dell'attacco SEO al cluster turistico territoriale, sostenuta da articoli satellite per ogni attrazione (Laghi di Monticchio, Castello di Melfi, Cantine Aglianico, Cascate di San Fele, Venosa oraziana).</p>
+    </div>
+
+    <div class="blog-categories">
+
+      <div class="blog-cat">
+        <div class="bc-letter">D</div>
+        <h4>Dintorni del Vulture</h4>
+        <p>Pillar "Cosa fare nel Vulture", Laghi di Monticchio, Castello di Melfi, Cascate di San Fele, Venosa oraziana, sentieri trekking.</p>
+      </div>
+
+      <div class="blog-cat">
+        <div class="bc-letter">F</div>
+        <h4>Filiera &amp; Stagionalità</h4>
+        <p>Raccolta delle olive, suino nero di Lucania, ricette stagionali, calendario produttivo, dietro le quinte della fattoria.</p>
+      </div>
+
+      <div class="blog-cat">
+        <div class="bc-letter">S</div>
+        <h4>Storie di Famiglia</h4>
+        <p>Storia famiglia Minniti, vita in fattoria, Sig.ra Rosalba, le origini dell'agriturismo, valori del posizionamento.</p>
+      </div>
+
+      <div class="blog-cat">
+        <div class="bc-letter">R</div>
+        <h4>Ricette &amp; Cucina Lucana</h4>
+        <p>Ricette del ristorante, abbinamenti con i prodotti della filiera, tradizione lucana raccontata dalla cucina.</p>
+      </div>
+
+      <div class="blog-cat">
+        <div class="bc-letter">E</div>
+        <h4>Esperienze in Agriturismo</h4>
+        <p>Cosa fare in struttura, eventi stagionali (Festa Olio Nuovo, Open Day, raccolte), camp estivi, pacchetti famiglia.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEZIONE 4: SPECIFICHE TECNICHE & SEO -->
+  <section class="card-section">
+    <div class="card-head">
+      <div class="badge-num">4</div>
+      <h2>Specifiche tecniche &amp; SEO</h2>
+    </div>
+    <p class="card-intro">Requisiti tecnici e di indicizzazione che il nuovo sito Ready deve rispettare per <strong>massimizzare il posizionamento organico</strong> sul cluster Vulture turistico, agriturismo bio Basilicata e fattoria didattica Sud Italia.</p>
+
+    <div class="specs-grid">
+
+      <div class="spec-box">
+        <h4>Architettura URL</h4>
+        <ul>
+          <li><strong>URL parlanti</strong> con keyword (es. /fattoria-didattica/)</li>
+          <li>Trattini (-) come separatori</li>
+          <li>No parametri inutili</li>
+          <li>Profondità max 2 livelli</li>
+          <li><strong>Redirect 301</strong> dal vecchio Si2Site al nuovo Ready</li>
+        </ul>
+      </div>
+
+      <div class="spec-box">
+        <h4>Meta tag obbligatori</h4>
+        <ul>
+          <li><strong>Title</strong> 55-65 caratteri con località ("Atella", "Vulture", "Basilicata")</li>
+          <li><strong>Meta description</strong> 150-160 con CTA</li>
+          <li><strong>H1 unico</strong> per pagina</li>
+          <li>Open Graph immagini hero per condivisione social</li>
+          <li>Canonical su tutte le pagine</li>
+        </ul>
+      </div>
+
+      <div class="spec-box">
+        <h4>Schema markup (JSON-LD)</h4>
+        <ul>
+          <li><strong>LodgingBusiness</strong> + ratings Booking/Tripadvisor</li>
+          <li><strong>Restaurant</strong> sulla pagina Ristorante</li>
+          <li><strong>LocalBusiness</strong> con NAP coerente (Via Portiello 8, Atella)</li>
+          <li><strong>Product</strong> per olio, formaggi, salumi</li>
+          <li><strong>FAQPage</strong> e <strong>BreadcrumbList</strong></li>
+          <li><strong>Review + AggregateRating</strong> dalle recensioni</li>
+        </ul>
+      </div>
+
+      <div class="spec-box">
+        <h4>Performance</h4>
+        <ul>
+          <li><strong>Core Web Vitals</strong> tutti verdi</li>
+          <li>LCP &lt; 2.5s · CLS &lt; 0.1</li>
+          <li>Immagini lazy-load + formato WebP</li>
+          <li>HTTPS obbligatorio (TLS 1.3)</li>
+          <li>Mobile-first responsive (target 60% traffico mobile)</li>
+        </ul>
+      </div>
+
+      <div class="spec-box">
+        <h4>Accessibilità WCAG 2.1 AA</h4>
+        <ul>
+          <li><strong>Contrasto colori</strong> 4.5:1 minimo (palette Vulture Premium ok)</li>
+          <li>Alt text descrittivo + geolocalizzato per ogni immagine</li>
+          <li>Navigazione da tastiera</li>
+          <li>Font ridimensionabili (Cormorant + Lato scalano bene)</li>
+          <li>ARIA label sui moduli (Pernottamento, Scuole, Prodotti)</li>
+        </ul>
+      </div>
+
+      <div class="spec-box">
+        <h4>Conformità normativa</h4>
+        <ul>
+          <li><strong>Privacy Policy GDPR</strong> intestata all'azienda</li>
+          <li>Cookie banner Linee Guida Garante 2021</li>
+          <li><strong>Footer dati societari</strong> (art. 2250 c.c.)</li>
+          <li>Termini e condizioni prenotazione diretta</li>
+          <li>Informativa per modulo richiesta listino prodotti</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    Alberatura sito Ready — Rupe delle Sorbe &nbsp;·&nbsp; <span class="by">A cura di Salvo Bilotti — Strategist</span>
+  </div>
+
+</div>
+</body>
+</html>
